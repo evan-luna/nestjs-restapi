@@ -63,12 +63,12 @@ describe('ProductsController', () => {
         ],
       };
 
-      jest.spyOn(service, 'findAllProducts').mockImplementation(() => {
-        return Promise.resolve({
-          ok: true,
-          results: allProductOutput,
-        });
-      });
+      // jest.spyOn(service, 'findAllProducts').mockImplementation(() => {
+      //   return Promise.resolve({
+      //     ok: true,
+      //     results: allProductOutput,
+      //   });
+      // });
 
       const result = await controller.getAllProduct(allProductInput);
 

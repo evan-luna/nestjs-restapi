@@ -1,0 +1,25 @@
+name: Nest test coverage
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      
+      - name: test
+        run: |
+          yarn install
+          yarn test:cov
+          bash <(curl -s https://codecov.io/bash)

@@ -17,7 +17,7 @@ type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
 describe('CategoriesService', () => {
   let service: CategoriesService;
   let categoriesRepository: MockRepository<Category>;
-  let productsRepository: MockRepository<Product>;
+  // let productsRepository: MockRepository<Product>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -30,7 +30,7 @@ describe('CategoriesService', () => {
 
     service = module.get<CategoriesService>(CategoriesService);
     categoriesRepository = module.get(getRepositoryToken(Category));
-    productsRepository = module.get(getRepositoryToken(Product));
+    // productsRepository = module.get(getRepositoryToken(Product));
   });
 
   describe('createCategory', () => {

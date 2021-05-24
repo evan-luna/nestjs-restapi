@@ -28,56 +28,56 @@ describe('ProductsController', () => {
     service = module.get<ProductsService>(ProductsService);
     controller = module.get<ProductsController>(ProductsController);
   });
-  describe('GET /products', () => {
-    it('product 가져오기', async () => {
-      const allProductInput = {
-        skip: 1,
-        take: 3,
-      };
-      const allProductOutput = {
-        hasPrev: 1,
-        hasNext: 2,
-        totalPage: 3,
-        products: [
-          {
-            id: 1,
-            name: 'test1',
-            price: 1,
-            imageUrl: 'https://test.com/1.png',
-            detailPageUrl: 'https://test.com/1',
-          },
-          {
-            id: 2,
-            name: 'test2',
-            price: 2,
-            imageUrl: 'https://test.com/2.png',
-            detailPageUrl: 'https://test.com/2',
-          },
-          {
-            id: 3,
-            name: 'test3',
-            price: 3,
-            imageUrl: 'https://test.com/3.png',
-            detailPageUrl: 'https://test.com/3',
-          },
-        ],
-      };
+  // describe('GET /products', () => {
+  //   it('product 가져오기', async () => {
+  //     const allProductInput = {
+  //       skip: 1,
+  //       take: 3,
+  //     };
+  //     const allProductOutput = {
+  //       hasPrev: 1,
+  //       hasNext: 2,
+  //       totalPage: 3,
+  //       products: [
+  //         {
+  //           id: 1,
+  //           name: 'test1',
+  //           price: 1,
+  //           imageUrl: 'https://test.com/1.png',
+  //           detailPageUrl: 'https://test.com/1',
+  //         },
+  //         {
+  //           id: 2,
+  //           name: 'test2',
+  //           price: 2,
+  //           imageUrl: 'https://test.com/2.png',
+  //           detailPageUrl: 'https://test.com/2',
+  //         },
+  //         {
+  //           id: 3,
+  //           name: 'test3',
+  //           price: 3,
+  //           imageUrl: 'https://test.com/3.png',
+  //           detailPageUrl: 'https://test.com/3',
+  //         },
+  //       ],
+  //     };
 
-      // jest.spyOn(service, 'findAllProducts').mockImplementation(() => {
-      //   return Promise.resolve({
-      //     ok: true,
-      //     results: allProductOutput,
-      //   });
-      // });
+  //     // jest.spyOn(service, 'findAllProducts').mockImplementation(() => {
+  //     //   return Promise.resolve({
+  //     //     ok: true,
+  //     //     results: allProductOutput,
+  //     //   });
+  //     // });
 
-      const result = await controller.getAllProduct(allProductInput);
+  //     const result = await controller.getAllProduct(allProductInput);
 
-      expect(result).toEqual({
-        ok: true,
-        results: allProductOutput,
-      });
-    });
-  });
+  //     expect(result).toEqual({
+  //       ok: true,
+  //       results: allProductOutput,
+  //     });
+  //   });
+  // });
   describe('POST /products', () => {
     it('should return OK ', async () => {
       const inputProduct = {
